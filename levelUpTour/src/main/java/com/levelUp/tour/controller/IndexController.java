@@ -16,4 +16,8 @@ public class IndexController {
 		return "index";
 	}
 	//수정
+	@RequestMapping("/")
+	public String index3(Model model) {
+		return "index";
+	}
 }
