@@ -10,10 +10,5 @@ public class IndexController {
 	public String index(Model model) {
 		return "index";
 	}
-	//수정
-	@RequestMapping("/")
-	public String index2(Model model) {
-		return "index";
-	}
 
 }
