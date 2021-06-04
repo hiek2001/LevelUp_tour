@@ -25,6 +25,9 @@ dependencies {
 	implementation('org.apache.tomcat.embed:tomcat-embed-jasper')  
     implementation('javax.servlet:jstl:1.2')
 	implementation('org.apache.tiles:tiles-jsp:3.0.4')
+	
+	//json jar
+	implementation files ('libs/json-20210307.jar')
 
 	
 
