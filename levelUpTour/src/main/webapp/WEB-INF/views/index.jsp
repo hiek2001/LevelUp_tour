@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<c:set value="${pageContext.request.contextPath}" var="path"/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Modern Business - Start Bootstrap Template</title>
+  <title>작년오늘 - 메인페이지</title>
 
   <!-- Bootstrap core CSS -->
   <link href="index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +32,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="${path }/login">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="services.html">Services</a>
@@ -117,7 +119,7 @@
       </a>
     </div>
   </header>
-
+  
   <!-- Page Content -->
   <div class="container">
 
