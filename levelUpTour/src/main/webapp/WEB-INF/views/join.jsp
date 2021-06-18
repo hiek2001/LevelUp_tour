@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<meta name = "google-signin-client_id" content = "96357335272-9pqairs8lj69u2su4dafq2g40fj5sip4.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script>
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
-
-</script>
+<!DOCTYPE html>
+<html>
 <head>
 
   <meta charset="utf-8">
@@ -18,7 +8,7 @@ function onSignIn(googleUser) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>작년오늘 - 로그인</title>
+  <title>작년오늘 - 회원가입</title>
 
   <!-- Bootstrap core CSS -->
   <link href="index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -127,19 +117,9 @@ function onSignIn(googleUser) {
       </a>
     </div>
   </header>
-  <!-- 구글 로그인 버튼 -->
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <!-- 회원가입 넣기 -->
   
-  <!-- 카카오 로그인 버튼 -->
-  <c:if test="${userId eq null }">
-	  <a href="https://kauth.kakao.com/oauth/authorize?client_id=637cc7db249a5fbb47607ade4bf2f7d2&redirect_uri=http://localhost:8090/login/kakao&response_type=code">
-	  	<img src="/api/img/kakao_login_large_wide.png">
-	  </a>
-  </c:if>
-  <c:if test="${userId ne null }">
-  	<h1>로그인 성공입니다.</h1>
-  	<input type="button" value="로그아웃" onclick="location.href='/logout/kakao'">
-  </c:if>
+  
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
