@@ -28,6 +28,9 @@ dependencies {
 	
 	//json jar
 	implementation files ('libs/json-20210307.jar')
+	
+	//gson
+	implementation 'com.google.code.gson:gson:2.8.5'
 
 }
 
