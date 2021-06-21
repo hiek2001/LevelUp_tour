@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set value="${pageContext.request.contextPath}" var="path"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,12 +32,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <c:if test="${kakao_userId==null}">
           <li class="nav-item">
             <a class="nav-link" href="${path }/login">Login</a>
           </li>
+          </c:if>
+          <c:if test="${kakao_userId==null}">
           <li class="nav-item">
             <a class="nav-link" href="${path }/join">Join</a>
           </li>
+          </c:if>
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
@@ -74,6 +79,16 @@
               <a class="dropdown-item" href="pricing.html">Pricing Table</a>
             </div>
           </li>
+           <c:if test="${kakao_userId!=null}">
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ${nickname}님, 안녕하세요!
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <a class="dropdown-item" href="${path}/mypage">마이페이지</a>
+              <a class="dropdown-item" href="${path}/logout/kakao">로그아웃</a>
+            </div>
+          </c:if>
         </ul>
       </div>
     </div>

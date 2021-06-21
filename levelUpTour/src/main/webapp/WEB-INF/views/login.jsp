@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <meta name = "google-signin-client_id" content = "96357335272-9pqairs8lj69u2su4dafq2g40fj5sip4.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
@@ -128,18 +129,20 @@ function onSignIn(googleUser) {
     </div>
   </header>
   <!-- 구글 로그인 버튼 -->
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
-  
-  <!-- 카카오 로그인 버튼 -->
-  <c:if test="${userId eq null }">
-	  <a href="https://kauth.kakao.com/oauth/authorize?client_id=637cc7db249a5fbb47607ade4bf2f7d2&redirect_uri=http://localhost:8090/login/kakao&response_type=code">
-	  	<img src="/api/img/kakao_login_large_wide.png">
-	  </a>
-  </c:if>
-  <c:if test="${userId ne null }">
-  	<h1>로그인 성공입니다.</h1>
-  	<input type="button" value="로그아웃" onclick="location.href='/logout/kakao'">
-  </c:if>
+  <div>
+	  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+	  
+	  <!-- 카카오 로그인 버튼 -->
+	  <c:if test="${kakao_userId eq null }">
+		  <a href="https://kauth.kakao.com/oauth/authorize?client_id=637cc7db249a5fbb47607ade4bf2f7d2&redirect_uri=http://localhost:8090/login/kakao&response_type=code">
+		  	<img src="/api/img/kakao_login_large_wide.png">
+		  </a>
+	  </c:if>
+	  <c:if test="${kakao_userId ne null }">
+	  	<h1>로그인 성공입니다.</h1>
+	  	<input type="button" value="로그아웃" onclick="location.href='/logout/kakao'">
+	  </c:if>
+  </div>
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">

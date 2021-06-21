@@ -84,11 +84,12 @@ public class KakaoAPI {
 		String reqURL = "https://kapi.kakao.com/v2/user/me";
 		try {
 			URL url = new URL(reqURL);
+			// java에서 HTTP로 데이터를 송수신하기 위해서는 HttpURLConnection 클래스를 이용
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("POST");
 			
 			//요청에 필요한 Header에 포함될 내용
-			conn.setRequestProperty("Authorization", "Bearer"+access_Token);
+			conn.setRequestProperty("Authorization", "Bearer "+access_Token);
 			
 			int responseCode = conn.getResponseCode();
 			System.out.println("responseCode : "+responseCode);
