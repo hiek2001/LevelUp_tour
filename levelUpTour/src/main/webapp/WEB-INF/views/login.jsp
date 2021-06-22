@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set value="${pageContext.request.contextPath}" var="path"/>
 <meta name = "google-signin-client_id" content = "96357335272-9pqairs8lj69u2su4dafq2g40fj5sip4.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
@@ -12,6 +13,40 @@ function onSignIn(googleUser) {
 }
 
 </script>
+<style>
+.login-box{
+	width:50%; 
+	height:60%; 
+	margin:auto;
+}
+
+#login-font{
+	font-size:2em; 
+	font-weight: bold; 
+	font-family: 'NanumSqure', sans-serif; 
+	top: 10%; 
+	left: 40%; 
+	position:relative;
+}
+
+#google-login-button{
+	top: 20%; 
+	left: 43%; 
+	position: relative;
+}
+
+#kakao-login-button{
+	top: 30%; 
+	left: 10%; 
+	position: relative;
+}
+
+.join-button{
+	position:relative; 
+	top: 40%; 
+	left: 40%;
+}
+</style>
 <head>
 
   <meta charset="utf-8">
@@ -22,10 +57,10 @@ function onSignIn(googleUser) {
   <title>작년오늘 - 로그인</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${path}/index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="index/css/modern-business.css" rel="stylesheet">
+  <link href="${path}/index/css/modern-business.css" rel="stylesheet">
 
 </head>
 
@@ -34,18 +69,22 @@ function onSignIn(googleUser) {
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+      <a class="navbar-brand" href="index.html">작년오늘</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <c:if test="${kakao_userId==null}">
           <li class="nav-item">
             <a class="nav-link" href="${path }/login">Login</a>
           </li>
+          </c:if>
+          <c:if test="${kakao_userId==null}">
           <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
+            <a class="nav-link" href="${path }/join">Join</a>
           </li>
+          </c:if>
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
@@ -128,20 +167,22 @@ function onSignIn(googleUser) {
       </a>
     </div>
   </header>
-  <!-- 구글 로그인 버튼 -->
-  <div>
-	  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <div class="login-box">
+  	<!-- 구글 로그인 완성되면 if문에 넣을 것 -->
+  	<c:if test="${kakao_userId eq null }">
+  		<span id="login-font">간편 로그인</span>
+	    <!-- 구글 로그인 버튼 -->
+	    <div id="google-login-button" class="g-signin2" data-onsuccess="onSignIn"></div>
 	  
-	  <!-- 카카오 로그인 버튼 -->
-	  <c:if test="${kakao_userId eq null }">
-		  <a href="https://kauth.kakao.com/oauth/authorize?client_id=637cc7db249a5fbb47607ade4bf2f7d2&redirect_uri=http://localhost:8090/login/kakao&response_type=code">
-		  	<img src="/api/img/kakao_login_large_wide.png">
-		  </a>
+		  <div id="kakao-login-button">
+		  	<!-- 카카오 로그인 버튼 -->
+			  <a href="https://kauth.kakao.com/oauth/authorize?client_id=637cc7db249a5fbb47607ade4bf2f7d2&redirect_uri=http://localhost:8090/login/kakao&response_type=code">
+			  	<img src="/api/img/kakao_login_large_wide.png">
+			  </a>
+		 </div>
 	  </c:if>
-	  <c:if test="${kakao_userId ne null }">
-	  	<h1>로그인 성공입니다.</h1>
-	  	<input type="button" value="로그아웃" onclick="location.href='/logout/kakao'">
-	  </c:if>
+	  
+	  <a class="join-button" href="${path}/join">회원이 아니신가요?</a>
   </div>
   <!-- Footer -->
   <footer class="py-5 bg-dark">
@@ -152,8 +193,8 @@ function onSignIn(googleUser) {
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="index/vendor/jquery/jquery.min.js"></script>
-  <script src="index/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="${path}/index/vendor/jquery/jquery.min.js"></script>
+  <script src="${path}/index/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
