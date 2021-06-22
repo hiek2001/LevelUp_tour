@@ -43,9 +43,9 @@ public class MemberController {
 			session.setAttribute("kakao_userId", userInfo.get("email"));
 			session.setAttribute("access_Token", access_Token);
 		}
+		modelandview.setViewName("/index");
 		modelandview.addObject("kakao_nickname",userInfo.get("nickname"));
-		modelandview.addObject("kakao_userId",userInfo.get("email"));
-		modelandview.setViewName("index");	
+		modelandview.addObject("kakao_userId",userInfo.get("email"));		
 		return modelandview;
 	}
 	
@@ -61,13 +61,11 @@ public class MemberController {
 	
 	// 03. 로그아웃 구현
 	@RequestMapping(value="/logout/kakao")
-	public ModelAndView kakaoLogout(HttpSession session) {
-		ModelAndView modelandview = new ModelAndView();
+	public String kakaoLogout(HttpSession session) {
 		kakao.kakaoLogout((String)session.getAttribute("access_Token"));
 		session.removeAttribute("access_Token");
 		session.removeAttribute("kakao_userId");
-		modelandview.setViewName("index");
-		return modelandview;
+		return "redirect:/";
 	}
 	
 }

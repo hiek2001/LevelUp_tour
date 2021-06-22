@@ -14,10 +14,10 @@
   <title>작년오늘 - 메인페이지</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${path}/index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="index/css/modern-business.css" rel="stylesheet">
+  <link href="${path}/index/css/modern-business.css" rel="stylesheet">
 
 </head>
 
@@ -26,7 +26,7 @@
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+      <a class="navbar-brand" href="index.html">작년오늘</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -297,8 +297,8 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="index/vendor/jquery/jquery.min.js"></script>
-  <script src="index/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="${path}/index/vendor/jquery/jquery.min.js"></script>
+  <script src="${path}/index/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
