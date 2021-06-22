@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.levelUp.tour.service.KakaoAPI;
 
 @Controller
+@RequestMapping("/")
 public class MemberController {
 	
 	@Autowired
@@ -56,6 +57,17 @@ public class MemberController {
 		modelandview.setViewName("join");	
 		return modelandview;
 		
+	}
+	
+	// 03. 로그아웃 구현
+	@RequestMapping(value="/logout/kakao")
+	public ModelAndView kakaoLogout(HttpSession session) {
+		ModelAndView modelandview = new ModelAndView();
+		kakao.kakaoLogout((String)session.getAttribute("access_Token"));
+		session.removeAttribute("access_Token");
+		session.removeAttribute("kakao_userId");
+		modelandview.setViewName("index");
+		return modelandview;
 	}
 	
 }

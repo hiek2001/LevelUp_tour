@@ -82,7 +82,7 @@
            <c:if test="${kakao_userId!=null}">
            <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              ${nickname}님, 안녕하세요!
+              ${kakao_nickname}님, 안녕하세요!
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
               <a class="dropdown-item" href="${path}/mypage">마이페이지</a>
