@@ -1,6 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set value="${pageContext.request.contextPath}" var="path"/>
+
+</script>
+<style>
+.join-box{
+	width:50%; 
+	height:60%; 
+	margin:auto;
+}
+
+#join-font{
+	font-size:2em; 
+	font-weight: bold; 
+	font-family: 'NanumSqure', sans-serif; 
+	top: 10%; 
+	left: 40%; 
+	position:relative;
+}
+
+
+.login-button{
+	position:relative; 
+	top: 40%; 
+	left: 40%;
+}
+</style>
 <head>
 
   <meta charset="utf-8">
@@ -8,13 +33,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>작년오늘 - 회원가입</title>
+  <title>작년오늘 - 로그인</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${path}/index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="index/css/modern-business.css" rel="stylesheet">
+  <link href="${path}/index/css/modern-business.css" rel="stylesheet">
 
 </head>
 
@@ -23,18 +48,22 @@
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+      <a class="navbar-brand" href="index.html">작년오늘</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <c:if test="${kakao_userId==null}">
           <li class="nav-item">
             <a class="nav-link" href="${path }/login">Login</a>
           </li>
+          </c:if>
+          <c:if test="${kakao_userId==null}">
           <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
+            <a class="nav-link" href="${path }/join">Join</a>
           </li>
+          </c:if>
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
@@ -117,9 +146,20 @@
       </a>
     </div>
   </header>
-  <!-- 회원가입 넣기 -->
-  
-  
+  <div class="join-box">
+  	<c:if test="${kakao_userId eq null }">
+  		<span id="join-font">간편 회원가입</span>
+	    <!-- 구글 회원가입 버튼 -->
+
+	  
+		  <div id="kakao-login-button">
+		  	<!-- 카카오 회원가입 버튼 -->
+			 
+		 </div>
+	  </c:if>
+	  
+	  <a class="login-button" href="${path}/login">이미 가입하셨나요?</a>
+  </div>
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
@@ -129,8 +169,8 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="index/vendor/jquery/jquery.min.js"></script>
-  <script src="index/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="${path}/index/vendor/jquery/jquery.min.js"></script>
+  <script src="${path}/index/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
