@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+/* global menu */
+.global-element{height:42px;background-color:#efefef;text-align:center}
+.global-element li{position:relative;display:inline-block;margin:0px 20px}
+.global-element li:after{position:absolute;right:-20px;top:50%;margin-top:-5px;z-index:1;content:'';display:block;clear:both;width:1px;height:10px;background-color:#d5d5d5}
+.global-element li:last-child:after{display:none}
+.global-element li a{font-size:16px;color:#6a6a6a;font-weight:700;line-height:40px;}
+
+
+/* articles list */
+
+/* 20201201//(Ina)웹접근성_수정(s) */
+.article-list-slide{overflow:hidden}
+.article-list{margin-top:10px;margin-left:-20px}
+.article-list:after,.article-list li .inner{content:'';display:block;clear:both}
+.article-list li{float:left;width:25%;box-sizing:border-box;margin-bottom:30px;}
+.article-list.travel li{float:left;width:50%;background:none}
+.newsletter-element .article-list li{height:400px;}
+.article-list li:after{content:'';display:block;clear:both}
+.article-list li a{display:block;position:relative;overflow:hidden;height:300px;margin-left:20px}
+.article-list li a .thumb{position:relative;width:100%;height:210px;background-repeat:no-repeat;background-position:0px 0px;box-shadow:1px 5px 10px rgba(0,0,0,.1);overflow:hidden;border-top-left-radius:4px;border-top-right-radius:4px;background-size:100% 100%} 
+.article-list li a .thumb .food-mark{position:absolute;right:10px;top:10px;z-index:1;background-color:rgba(255,255,255,1);text-align:center;border-radius:33px;padding:3px;box-sizing:border-box;box-shadow:2px 4px 4px rgba(0,0,0,0.2)}
+.article-list li a .thumb .food-mark img{width:55px;height:55px;}
+.article-list li a .thumb span{display:inline-block;position:absolute;z-index:1}
+.article-list li a .thumb span.tip-text{right:5px;top:5px;padding:5px 10px;min-width:80px;box-sizing:border-box;text-align:center;font-size:14px;border-radius:4px;color:#fff}
+.article-list li a .thumb span.tip-text.blue{background-color:#0066eb}
+.article-list li a .thumb span.tip-text.red{background-color:#eb0000}
+.article-list li a .thumb span.tip-text.black{background-color:#333;}
+.article-list li a .thumb span.day-text{left:20px;bottom:30px;padding:5px 10px 7px 10px;box-sizing:border-box;text-align:center;font-size:16px;background-color:#000;color:#ddd}
+.article-list li a .thumb > img{width:100%}
+.article-list li a .infor-element{position:absolute;left:0px;right:0;bottom:-53px;z-index:1;box-sizing:border-box;margin:0px 10px 0px 10px;width:auto;padding:0px}
+/* .article-list li a:hover .infor-element{bottom:0px;transition:all .3s} */
+.article-list li a .infor-element .infor-element-inner{border-top-left-radius:4px;border-top-right-radius:4px;height:135px;background-color:#fff;padding:13px 10px;}
+.article-list.shopping li a .infor-element{height:auto}
+.article-list li a .infor-element span{display:block}
+.article-list li a .infor-element .day{font-size:14px;color:#555;font-weight:700}
+.article-list li a .infor-element .title{font-size:17px;color:#222;font-weight:700}
+/* .article-list li a:hover .infor-element .title{color:#0066eb} */
+.article-list li a .infor-element .view{position:absolute;right:10px;bottom:25px;z-index:1;width:26px;height:26px;background:url(../../../assets/images/2019/common/list-view-btn.png) no-repeat 0px 0px}
+.article-list li a .infor-element .small-text{font-size:14px;color:#959595;margin-top:5px;line-height:20px;height:42px;overflow:hidden}
+.article-list li a .infor-element .trip-ico{margin-top:5px}
+.article-list li a .infor-element .trip-ico span{display:inline-block;margin-left:3px;font-size:12px;color:#777}
+
+
+.article-list li.active .infor-element{bottom:0px;
+	-webkit-transition:all 0.3s ease-out;
+	-moz-transition:all 0.3s ease-out;
+	-o-transition:all 0.3s ease-out;
+	transition:all 0.3s ease-out;
+}
+.article-list li.active .infor-element .title {color:#0066eb;}
+
+/* 20201201//(Ina)웹접근성_수정(e) */
+@media all and (max-width:1024px){
+	.article-list{margin-left:-20px;}
+	.article-list li a{margin-left:20px}
+	.article-list li a .thumb{background-size:cover}
+	.article-list-slide .article-list{margin-left:0px}
+	.article-list-slide .article-list li{width:100%}
+	.article-list-slide .article-list li a{margin-left:0px}
+}
+
+@media all and (max-width:768px){
+	.section-element .article-list{display:none}
+	.article-list{margin-left:0px;margin-right:15px;}
+	.article-list li{width:50%;}
+	.article-list li a{margin-left:15px}
+	.article-list li a .infor-element .title{font-size:20px}
+	.article-list-element .article-list{margin-right:0px;}
+	.article-list-element .article-list li{width:100%;}
+	.article-list-element .article-list li a{margin-left:0px}
+	.newsletter-element{margin:30px auto 80px auto}
+	.newsletter-more{text-align:center}
+	.newsletter-more a{display:inline-block}
+}
+
+@media all and (max-width:480px){
+	.article-list li a .infor-element .small-text{height:auto;overflow:hidden}
+}
+
+/* articles list */
+.article-list-element{padding:60px 0px;}
+.tag-element{width:100%;max-width:1200px;position:relative;margin:10px auto 40px auto;text-align:left}
+.tag-element.detail{border-bottom:1px solid #ddd;padding:40px 0px}
+.tag-element.poi{border-bottom:1px solid #ddd;border-top:1px solid #ddd;padding:20px 0px;box-sizing:border-box}
+.tag-element .title{display:inline-block;font-size:18px;color:#0066eb;font-weight:700;padding-left:25px;background:url(../../../assets/images/2019/common/ico-tag.png) no-repeat 0px 3px;padding-right:15px;margin-bottom:10px}
+.tag-element.detail span.title{display:block;}
+.tag-element.detail p{margin-top:10px}
+
+/* 20201201//(Ina)웹접근성_수정(s) */
+/* .tag-element a{display:inline-block;font-size:16px;color:#959595;font-weight:400;margin:0px 10px;padding:5px 0px} */
+.tag-element a{display:inline-block;font-size:16px;color:#767676;font-weight:400;margin:0px 5px;}
+
+.tag-title a{display:inline-block;font-size:16px;color:#767676;font-weight:600;margin:0px 10px;padding:5px 0px}
+/* 20201201//(Ina)웹접근성_수정(e) */
+
+.tag-element a.active{color:#0066eb;padding:5px 0px;border-bottom:2px solid #0066eb}
+.article-list-element:last-child{border:0px;padding:60px 0px 0px 0px;}
+
+/* inner */
+.article-list li a .infor-element{position:absolute;left:0px;right:0;bottom:-53px;z-index:1;box-sizing:border-box;margin:0px 10px 0px 10px;width:auto;padding:0px}
+/* .article-list li a:hover .infor-element{bottom:0px;transition:all .3s} */
+.article-list li a .infor-element .infor-element-inner{border-top-left-radius:4px;border-top-right-radius:4px;height:135px;background-color:#fff;padding:13px 10px;}
+.article-list.shopping li a .infor-element{height:auto}
+.article-list li a .infor-element span{display:block}
+.article-list li a .infor-element .day{font-size:14px;color:#555;font-weight:700}
+.article-list li a .infor-element .title{font-size:17px;color:#222;font-weight:700}
+/* .article-list li a:hover .infor-element .title{color:#0066eb} */
+.article-list li a .infor-element .view{position:absolute;right:10px;bottom:25px;z-index:1;width:26px;height:26px;background:url(../../../assets/images/2019/common/list-view-btn.png) no-repeat 0px 0px}
+.article-list li a .infor-element .small-text{font-size:14px;color:#959595;margin-top:5px;line-height:20px;height:42px;overflow:hidden}
+.article-list li a .infor-element .trip-ico{margin-top:5px}
+.article-list li a .infor-element .trip-ico span{display:inline-block;margin-left:3px;font-size:12px;color:#777}
+
+
+.article-list li.active .infor-element .title {color:#0066eb;}

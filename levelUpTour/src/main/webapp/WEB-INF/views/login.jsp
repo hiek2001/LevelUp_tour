@@ -77,16 +77,16 @@ function onSignIn(googleUser) {
         <ul class="navbar-nav ml-auto">
           <c:if test="${kakao_userId==null}">
           <li class="nav-item">
-            <a class="nav-link" href="${path }/login">Login</a>
+            <a class="nav-link" href="${path }/login">로그인</a>
           </li>
           </c:if>
           <c:if test="${kakao_userId==null}">
           <li class="nav-item">
-            <a class="nav-link" href="${path }/join">Join</a>
+            <a class="nav-link" href="${path }/join">회원가입</a>
           </li>
           </c:if>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="${path }/tourSpot">관광지정보</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -167,17 +167,30 @@ function onSignIn(googleUser) {
       </a>
     </div>
   </header>
+  
   <div class="login-box">
   	<!-- 구글 로그인 완성되면 if문에 넣을 것 -->
   	<c:if test="${kakao_userId eq null }">
-  		<span id="login-font">간편 로그인</span>
+  		<span id="login-font">로그인</span>
+  	<!-- <div style="">
+  			<div>
+  				<input type="text" name="user_mail" placeholder="이메일">
+  			</div>
+  			<div>
+  				<input type="text" name="user_password" placeholder="비밀번호">
+  			</div>
+	  		<div>
+	  			<button type="button" class="form_submit_button" onclick="login()">Submit</button>
+	  		</div>
+  		</div>  -->	
+  		
 	    <!-- 구글 로그인 버튼 -->
 	    <div id="google-login-button" class="g-signin2" data-onsuccess="onSignIn"></div>
 	  
 		  <div id="kakao-login-button">
 		  	<!-- 카카오 로그인 버튼 -->
 			  <a href="https://kauth.kakao.com/oauth/authorize?client_id=637cc7db249a5fbb47607ade4bf2f7d2&redirect_uri=http://localhost:8090/login/kakao&response_type=code">
-			  	<img src="/api/img/kakao_login_large_wide.png">
+			  	<img src="/api/img/kakao_login_medium.png">
 			  </a>
 		 </div>
 	  </c:if>
