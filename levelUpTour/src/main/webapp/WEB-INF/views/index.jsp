@@ -34,16 +34,16 @@
         <ul class="navbar-nav ml-auto">
           <c:if test="${kakao_userId==null}">
           <li class="nav-item">
-            <a class="nav-link" href="${path }/login">Login</a>
+            <a class="nav-link" href="${path }/login">로그인</a>
           </li>
           </c:if>
           <c:if test="${kakao_userId==null}">
           <li class="nav-item">
-            <a class="nav-link" href="${path }/join">Join</a>
+            <a class="nav-link" href="${path }/join">회원가입</a>
           </li>
           </c:if>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="${path }/tourSpot">관광지정보</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
