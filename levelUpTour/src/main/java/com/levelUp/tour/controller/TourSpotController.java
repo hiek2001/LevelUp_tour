@@ -15,4 +15,12 @@ public class TourSpotController {
 		mv.setViewName("tourSpot");
 		return mv;
 	}
+	
+	// 02. 관광지 상세 정보 페이지로 이동
+	@RequestMapping(value="/tourSpot/detail", method=RequestMethod.GET)
+	public ModelAndView tourSpotDetail() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("tourSpotDetail");
+		return mv;
+	}
 }
