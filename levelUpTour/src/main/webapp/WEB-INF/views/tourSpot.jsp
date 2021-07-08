@@ -176,7 +176,7 @@ $(document).ready(function(){
 				<ul class="article-list">
 					<li class="item">
 							<!-- 2020 웹접근성 -->
-							<a href="/nature/도봉산_/3599" target="_self"  title="페이지 이동">
+							<a href="${path }/tourSpot/detail" target="_self"  title="페이지 이동">
 							
 								<div class="thumb" style="width: 100%; height: 210px; background-image: url(../tourSpot/img/산방산유채꽃.png)";>
 									</div>
