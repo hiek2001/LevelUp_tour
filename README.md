@@ -10,7 +10,7 @@
   Language : Java, HTML5, CSS, JavaScript, JSP, Ajax
   JPA
   Framework : Spring Boot, Spring Security, Bootstrap
-  Library : JQuery, 
+  Library : JQuery, lombok
   Development Environment : Windows 10
   Collaboration Environment : Confluence, Oven
 ```
