@@ -9,8 +9,8 @@
   DB : Oracle 
   Language : Java, HTML5, CSS, JavaScript, JSP, Ajax
   JPA
-  Framework : Spring Boot, Bootstrap
-  Library : JQuery
+  Framework : Spring Boot, Spring Security, Bootstrap
+  Library : JQuery, 
   Development Environment : Windows 10
   Collaboration Environment : Confluence, Oven
 ```
