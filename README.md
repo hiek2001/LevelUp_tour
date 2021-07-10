@@ -7,8 +7,8 @@
 ### 2. 개발환경
 ```
   DB : Oracle 
+  Data Access : JPA
   Language : Java, HTML5, CSS, JavaScript, JSP, Ajax
-  JPA
   Framework : Spring Boot, Spring Security, Bootstrap
   Library : JQuery, Lombok
   Development Environment : Windows 10
