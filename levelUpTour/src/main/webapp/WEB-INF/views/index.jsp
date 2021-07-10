@@ -32,14 +32,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+         <!-- 
           <c:if test="${kakao_userId==null}">
           <li class="nav-item">
             <a class="nav-link" href="${path }/login">로그인</a>
-          </li>
-          </c:if>
+          </li> 
+          </c:if>-->
           <c:if test="${kakao_userId==null}">
           <li class="nav-item">
-            <a class="nav-link" href="${path }/join">회원가입</a>
+            <a class="nav-link" href="${path }/join">Login/Join</a>
           </li>
           </c:if>
           <li class="nav-item">
