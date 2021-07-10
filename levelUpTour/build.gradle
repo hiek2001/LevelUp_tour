@@ -32,6 +32,15 @@ dependencies {
 	//gson
 	implementation 'com.google.code.gson:gson:2.8.5'
 
+	//Spring Security 설정 : 사이트 전체가 잠김(인증 피수 페이지로 변함) > WebSecurityConfig에서 비인증 및 인증을 설정해야 함
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	//view 단에서 현재 로그인된 사용자의 정보를 가져오기 위한 것
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	
+	//lombok 설정
+	compileOnly 'org.projectlombok:lombok:1.18.20'
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+	
 }
 
 test {
