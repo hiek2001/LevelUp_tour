@@ -10,6 +10,7 @@
   Data Access : JPA
   Language : Java, HTML5, CSS, JavaScript, JSP, Ajax
   Framework : Spring Boot, Spring Security, Bootstrap
+  WEB/WAS Server : Gradle
   Library : JQuery, Lombok
   Development Environment : Windows 10
   Collaboration Environment : Confluence, Oven
