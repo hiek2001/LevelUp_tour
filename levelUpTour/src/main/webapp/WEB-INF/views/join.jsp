@@ -12,9 +12,9 @@
             $("#regbtn").click(function(){
                 var result = checks();
 				if(result == true){
-					debugger;
-					$("#register").attr("action","joinEnd").submit();
-					debugger;
+				//	$("#register").attr("href","joinEnd");
+				
+					//debugger;
 				}
             });
         });
@@ -74,20 +74,20 @@
         			</a>
                     <img src="${path}/member/img/gl.png" alt="google">
                 </div>
-                <form id="login" action="${path}/login/normal" class="input-group">
-                    <input type="text" class="input-field" placeholder="User name or Email" required>
-                    <input type="password" class="input-field" placeholder="Enter Password" required>
-                    <input type="checkbox" class="checkbox"><span>Remember Password</span>
-                    <button class="submit">Login</button>
+                <form method="post" id="login" action="${path}/login/normal" class="input-group">
+                    <input type="email" name="email" class="input-field" placeholder="User Email" required>
+                    <input type="password" name="password" class="input-field" placeholder="Enter Password" required>
+                  <!--   <input type="checkbox" class="checkbox"><span>Remember Password</span>  -->
+                    <button type="submit" class="submit">Login</button>
                 </form> 
-             <form name="join" id="register" class="input-group" method="post">
+             <form method="post" id="register" action="${path}/join/end" class="input-group" >
                 	<input type="hidden" name="platformtype" value="normal">
                     <input type="text" id="name" name="name" class="input-field" placeholder="User name" required>
                     <input type="email" id="email" name="email" class="input-field" placeholder="Your Email" required>
                     <input type="password" name="password" class="input-field" placeholder="Enter Password" required>
                     <input type="text" id="phone" name="phone" class="input-field" placeholder="Your Phone number" required>
-                    <button class="submit" id="regbtn">REGISTER</button>
-             </form>    
+                    <button type="submit" class="submit" id="regbtn" >REGISTER</button>
+             </form>     
             </div>
         </div>
         <script>
