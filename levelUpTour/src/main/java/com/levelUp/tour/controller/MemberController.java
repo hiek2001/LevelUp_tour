@@ -2,15 +2,24 @@ package com.levelUp.tour.controller;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import com.levelUp.tour.dto.MemberDto;
 import com.levelUp.tour.service.KakaoAPI;
+import com.levelUp.tour.service.MemberService;
 
 @Controller
 @RequestMapping("/")
@@ -18,6 +27,9 @@ public class MemberController {
 	
 	@Autowired
 	private KakaoAPI kakao;
+	
+	@Autowired
+	private MemberService memberService;
 	
 	// 01. 로그인 페이지로 이동
 	@RequestMapping(value="/login", method=RequestMethod.GET)
@@ -59,12 +71,28 @@ public class MemberController {
 		
 	}
 	
-	// 03. 로그아웃 구현
+	// 03. 카카오 로그아웃 구현
 	@RequestMapping(value="/logout/kakao")
 	public String kakaoLogout(HttpSession session) {
 		kakao.kakaoLogout((String)session.getAttribute("access_Token"));
 		session.removeAttribute("access_Token");
 		session.removeAttribute("kakao_userId");
+		return "redirect:/";
+	}
+	
+	// 04. 회원가입 처리
+	@PostMapping(value="/join/end")
+	public String joinEnd(MemberDto memberDto) {
+		System.out.println("01) Controller ::::::회원가입!!!!!");
+		System.out.println("memberDto 값 넘어가는거 확인:::"+memberDto);
+		memberService.joinEnd(memberDto);
+		return "redirect:/";
+	}
+	
+	// 05. 일반 로그아웃 구현
+	@GetMapping(value = "/logout/normal")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
 		return "redirect:/";
 	}
 	
