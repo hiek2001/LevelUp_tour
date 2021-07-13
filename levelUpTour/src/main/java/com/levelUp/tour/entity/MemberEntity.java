@@ -44,12 +44,13 @@ public class MemberEntity implements UserDetails{
 
 
 	@Builder
-	public MemberEntity(String email, String name, String password, String phone, String platformtype) {
+	public MemberEntity(String email, String name, String password, String phone, String platformtype, String auth) {
 		this.email = email;
 		this.name = name;
 		this.password = password;
 		this.phone = phone;
-		this.platformtype = platformtype;		
+		this.platformtype = platformtype;	
+		this.auth = auth;
 	}
 	
 	  // 사용자의 권한을 콜렉션 형태로 반환

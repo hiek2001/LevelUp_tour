@@ -10,7 +10,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import com.levelUp.tour.LoginFailureHandler;
+import com.levelUp.tour.LoginSuccessHandler;
 import com.levelUp.tour.service.MemberService;
 
 import lombok.AllArgsConstructor;
@@ -44,31 +47,40 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	// http 관련 인증 설정 가능
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
 		http
 			// 페이지 권한 설정
 			.authorizeRequests() //접근에 대한 인증 설정
-			  .antMatchers("/", "/join/**", "/tourSpot", "/tourSpotDetail","/login/**").permitAll() //antMatchers를 통해 경로 설정과 권한 설정 가능 / permitAll : 누구나 접근 가능
-			  .anyRequest().authenticated() //나머지 요청들은 권한 종류에 상관없이 권한이 있어야 접근
+			  .antMatchers("/", "/join/**","/login/**","/kaoLogin", "/tourSpot", "/tourSpotDetail").permitAll() //antMatchers를 통해 경로 설정과 권한 설정 가능 / permitAll : 누구나 접근 가능
+			  .anyRequest().authenticated() //나머지 요청들은 권한 종류에 상관없이 권한이 있어야 접근x
 			 
 			
 			// 로그인 설정
 			.and()
 			 .formLogin()
 			  .loginPage("/join") //로그인 페이지 링크
-			  .loginProcessingUrl("/login/normal")
-			  .defaultSuccessUrl("/") //로그인 성공 후 리다이렉트 주소
+			  .loginProcessingUrl("/normal-login")
+			 // .defaultSuccessUrl("/") //로그인 성공 후 리다이렉트 주소
 			  .usernameParameter("email")
-			  .usernameParameter("password")
-			  .permitAll()
+			  .passwordParameter("password")
+			  .successHandler(new LoginSuccessHandler()) //로그인 성공 후의 로직
+			  .failureHandler(new LoginFailureHandler()) //로그인 실패 시 알림 메시지
+			  
 			  
 			// 로그아웃 설정
 			.and()
 			 .logout()
 			  .logoutSuccessUrl("/") //로그아웃 성공 시 리다이렉트 주소
-			  .invalidateHttpSession(true); //세션 날리기
+			  .invalidateHttpSession(true) //세션 날리기
+		
+			.and()
+			.csrf();
 			  
-		http.cors().and();
-		http.csrf().disable();
+			 // .ignoringAntMatchers("/login/**")
+			//  .ignoringAntMatchers("/join/**");
+		
+		http.cors();
+		
 			// oauth2를 이용해 kakao login 구현
 			//.and()
 			 //.oauth2Login()
