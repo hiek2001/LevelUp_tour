@@ -9,13 +9,10 @@
         <script language="javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
         <script>
         $(function(){
-            $("#regbtn").click(function(){
-                var result = checks();
-				if(result == true){
-				//	$("#register").attr("href","joinEnd");
-				
-					//debugger;
-				}
+            $("#loginbtn").click(function(){
+                if((String)request.getAttribute("loginFailMsg") != null) {
+          	     	alert('${loginFailMsg}');	
+                } 
             });
         });
         
@@ -69,24 +66,25 @@
                   	<button type="button" class="togglebtn" onclick="register()">REGISTER</button> 
                 </div>
                 <div class="social-icons">
-                	 <a href="https://kauth.kakao.com/oauth/authorize?client_id=637cc7db249a5fbb47607ade4bf2f7d2&redirect_uri=http://localhost:8090/login/kakao&response_type=code">
+                	 <a href="https://kauth.kakao.com/oauth/authorize?client_id=637cc7db249a5fbb47607ade4bf2f7d2&redirect_uri=http://localhost:8090/kaoLogin&response_type=code">
                     	<img src="${path}/member/img/ka.JPG" alt="kakao">
         			</a>
                     <img src="${path}/member/img/gl.png" alt="google">
                 </div>
-                <form method="post" id="login" action="${path}/login/normal" class="input-group">
+                <form method="post" id="login" action="${path}/normal-login" class="input-group">
+                	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <input type="email" name="email" class="input-field" placeholder="User Email" required>
                     <input type="password" name="password" class="input-field" placeholder="Enter Password" required>
-                  <!--   <input type="checkbox" class="checkbox"><span>Remember Password</span>  -->
-                    <button type="submit" class="submit">Login</button>
+                    <button type="submit" class="submit" id="loginbtn">Login</button>
                 </form> 
-             <form method="post" id="register" action="${path}/join/end" class="input-group" >
+             <form method="post" id="register" action="${path}/join/end" class="input-group" onclick="return check();">
                 	<input type="hidden" name="platformtype" value="normal">
+                	<input type="hidden" name="auth" value="user">
                     <input type="text" id="name" name="name" class="input-field" placeholder="User name" required>
                     <input type="email" id="email" name="email" class="input-field" placeholder="Your Email" required>
                     <input type="password" name="password" class="input-field" placeholder="Enter Password" required>
                     <input type="text" id="phone" name="phone" class="input-field" placeholder="Your Phone number" required>
-                    <button type="submit" class="submit" id="regbtn" >REGISTER</button>
+                    <button type="submit" class="submit" >REGISTER</button>
              </form>     
             </div>
         </div>

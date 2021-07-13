@@ -19,6 +19,7 @@ public class MemberDto {
 	private String password;
 	private String phone;
 	private String platformtype;
+	private String auth;
 	
 	
 	public MemberEntity toEntity() {
@@ -28,16 +29,18 @@ public class MemberDto {
 				.password(new BCryptPasswordEncoder().encode(password))
 				.phone(phone)
 				.platformtype(platformtype)
+				.auth(auth)
 				.build();
 		return build;
 	}
 	
 	@Builder
-	public MemberDto(String email, String name, String password, String phone, String platformtype) {
+	public MemberDto(String email, String name, String password, String phone, String platformtype, String auth) {
 		this.email = email;
 		this.name = name;
 		this.password = password;
 		this.phone = phone;
 		this.platformtype = platformtype;
+		this.auth = auth;
 	}
 }
