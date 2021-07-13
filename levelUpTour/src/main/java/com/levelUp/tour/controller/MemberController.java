@@ -31,17 +31,8 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	// 01. 로그인 페이지로 이동
-	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public ModelAndView login() {
-		ModelAndView modelandview = new ModelAndView();
-		modelandview.setViewName("login");	
-		return modelandview;
-		
-	}
-	
 	// 01_1. 카카오 로그인
-	@RequestMapping(value="/login/kakao")
+	@RequestMapping(value="/kaoLogin")
 	public ModelAndView kakaoLogin(String code, HttpSession session) {
 		ModelAndView modelandview = new ModelAndView();
 		System.out.println("code ::: "+code);
@@ -63,7 +54,7 @@ public class MemberController {
 	
 	
 	// 02. 회원가입 페이지로 이동
-	@RequestMapping(value="/join", method=RequestMethod.GET)
+	@RequestMapping(value="/join", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView join() {
 		ModelAndView modelandview = new ModelAndView();
 		modelandview.setViewName("join");	
@@ -72,7 +63,7 @@ public class MemberController {
 	}
 	
 	// 03. 카카오 로그아웃 구현
-	@RequestMapping(value="/logout/kakao")
+	@RequestMapping(value="/kaoLogout")
 	public String kakaoLogout(HttpSession session) {
 		kakao.kakaoLogout((String)session.getAttribute("access_Token"));
 		session.removeAttribute("access_Token");
@@ -90,7 +81,7 @@ public class MemberController {
 	}
 	
 	// 05. 일반 로그아웃 구현
-	@GetMapping(value = "/logout/normal")
+	@GetMapping(value = "/logout")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
 		return "redirect:/";

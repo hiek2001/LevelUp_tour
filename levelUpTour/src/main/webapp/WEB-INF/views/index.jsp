@@ -26,7 +26,7 @@
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">작년오늘</a>${memberDto}
+      <a class="navbar-brand" href="index.html">작년오늘</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -38,7 +38,7 @@
             <a class="nav-link" href="${path }/login">로그인</a>
           </li> 
           </c:if>-->
-          <c:if test="${kakao_userId==null} ">
+          <c:if test="${memberDto.email == null }">
           <li class="nav-item">
             <a class="nav-link" href="${path }/join">Login/Join</a>
           </li>
@@ -65,16 +65,16 @@
 	            </a>
 	            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
 	              <a class="dropdown-item" href="${path}/mypage">마이페이지</a>
-	              <a class="dropdown-item" href="${path}/logout/kakao">로그아웃</a>
+	              <a class="dropdown-item" href="${path}/kaoLogout">로그아웃</a>
 	            </div>
             </c:if>
-            <c:if test="${email!=null }">
+            <c:if test="${memberDto.email!=null }">
 	            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	              ${name}님, 안녕하세요!
+	              {{welcomeName}}님, 안녕하세요!
 	            </a>
 	             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
 	              <a class="dropdown-item" href="${path}/mypage">마이페이지</a>
-	              <a class="dropdown-item" href="${path}/logout/normal">로그아웃</a>
+	              <a class="dropdown-item" href="${path}/logout">로그아웃</a>
 	            </div>
             </c:if>
         </ul>
