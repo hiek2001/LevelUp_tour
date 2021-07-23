@@ -22,7 +22,7 @@
 :heavy_check_mark: 기획 및 DB 설계 참여<br><br>
 :heavy_check_mark: 회원가입<br>
 카카오API를 활용한 로그인과 로그아웃 구현<br>
-Spring Security와 JPA를 사용한 회원가입과 로그인 구현 예정<br><br>
+Spring Security와 JPA를 사용한 회원가입과 로그인 구현 진행중<br><br>
 :heavy_check_mark: 이용권 결제<br>
 관광지 정보 사이트 구현<br>
 조건에 따라 관광지 리스트 조회 구현 예정<br>
